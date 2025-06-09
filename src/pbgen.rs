@@ -236,6 +236,13 @@ pub fn gen_pb_def(obj: &Message) -> String {
     buf.to_string()
 }
 
+pub fn gen_pb_def_with_name(obj: &Message, ns: &str) -> String {
+    
+    let mut buf = IdentBuffer::new(0);
+    obj.gen(&mut buf, ns);
+    buf.to_string()
+}
+
 pub struct IdentBuffer {
     ident: usize,
     buf: String,
